@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glow-blue: 0 0 30px rgba(59, 130, 246, 0.3);
+  --glow-red: 0 0 30px rgba(239, 68, 68, 0.3);
+  --glow-green: 0 0 30px rgba(16, 185, 129, 0.3);
+}
+
+* {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-gray-900/40 backdrop-blur-xl border border-gray-800/50 rounded-2xl shadow-2xl;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .glass-nav {
+    @apply bg-gray-900/70 backdrop-blur-xl;
+  }
+}
+
+@layer utilities {
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Floating orbs */
+  @keyframes float-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(80px, -60px) scale(1.1); }
+    50% { transform: translate(-40px, -120px) scale(0.9); }
+    75% { transform: translate(60px, -40px) scale(1.05); }
+  }
+
+  @keyframes float-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-100px, 60px) scale(1.15); }
+    66% { transform: translate(60px, 100px) scale(0.85); }
+  }
+
+  @keyframes float-3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(120px, -80px) scale(1.1); }
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    top: -100px;
+    right: -100px;
+    background: radial-gradient(circle, #3b82f6, transparent);
+    animation: float-1 20s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 400px;
+    height: 400px;
+    bottom: 20%;
+    left: -100px;
+    background: radial-gradient(circle, #06b6d4, transparent);
+    animation: float-2 25s ease-in-out infinite;
+  }
+
+  .orb-3 {
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    right: 10%;
+    background: radial-gradient(circle, #8b5cf6, transparent);
+    animation: float-3 18s ease-in-out infinite;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.7);
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+}

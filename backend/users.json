@@ -1,0 +1,14 @@
+[
+  {
+    "id": "ff0cfaa907a0497db5f7967d6b884628",
+    "email": "mgokulakrishnan005@gmail.com",
+    "passwordHash": "a4bb67d75e9120e9dfa5877e5d619493f35efa588e8de4b3743f92e9addf10eb",
+    "salt": "d8699eb1d7bd4632a59f94215693122a"
+  },
+  {
+    "id": "6539bd58483042a1b5a20f72b79f9256",
+    "email": "idioticrohith@gmail.com",
+    "passwordHash": "fb924008ecfd5c0075def49663f9b6cea0f698379c909ef8a9eeca82316e50d0",
+    "salt": "664cfdb4cd0f4ba69cdc7415ba908a89"
+  }
+]
