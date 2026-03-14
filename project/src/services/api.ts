@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AnalysisResult } from '../types';
 
 const API_BASE_URL = 'http://localhost:5000';

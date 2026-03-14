@@ -1,4 +1,15 @@
-import { AnalysisResult, PhishingIndicator } from '../types';
+export interface PhishingIndicator {
+  type: string;
+  severity: 'low' | 'medium' | 'high';
+  description: string;
+}
+
+export interface LocalAnalysisResult {
+  status: 'safe' | 'phishing';
+  confidence: number;
+  insights: string[];
+  indicators: PhishingIndicator[];
+}
 
 export class PhishingDetector {
   private urgencyPatterns = [
@@ -39,7 +50,7 @@ export class PhishingDetector {
     /hello user/i, /attention/i
   ];
 
-  analyze(text: string): AnalysisResult {
+  analyze(text: string): LocalAnalysisResult {
     const cleanedText = this.cleanText(text);
     const indicators = this.detectIndicators(cleanedText);
     const score = this.calculatePhishingScore(indicators);
